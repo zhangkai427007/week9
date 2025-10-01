@@ -6,15 +6,45 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { margin-bottom: 10px; }
+    #vis { margin-bottom: 30px; }
+    pre {
+      background: #f7f7f7;
+      border: 1px solid #ccc;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 13px;
+    }
+  </style>
 </head>
 <body>
   <h2>Greater Kuala Lumpur Urban Rail Network — 2025</h2>
+  
   <div id="vis"></div>
+
+
+  <h3>urban-map.json</h3>
+  <pre id="json-code">Loading JSON...</pre>
+
   <script type="text/javascript">
-    vegaEmbed('#vis', 'https://raw.githubusercontent.com/zhangkai427007/week9/main/urban-map.json')
-      .catch(console.error);
+    const jsonUrl = "https://raw.githubusercontent.com/zhangkai427007/week9/main/urban-map.json";
+
+   
+    vegaEmbed('#vis', jsonUrl).catch(console.error);
+
+  
+    fetch(jsonUrl)
+      .then(res => res.text())
+      .then(txt => {
+        document.getElementById("json-code").textContent = txt;
+      })
+      .catch(err => {
+        document.getElementById("json-code").textContent = "Error loading JSON: " + err;
+      });
   </script>
 </body>
 </html>
-
 
