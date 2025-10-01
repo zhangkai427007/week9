@@ -10,13 +10,13 @@
   "height": 600,
   "projection": {
     "type": "mercator",
-    "center": [101.69, 3.13],   // focus on KL city
-    "scale": 35000              // zoomed-in scale
+    "center": [101.69, 3.13],   
+    "scale": 35000              
   },
   "layer": [
     {
       "mark": {"type": "geoshape", "fill": "#cceeff"}, 
-      "data": {"sphere": true}  // ocean background
+      "data": {"sphere": true}  
     },
 
     {
