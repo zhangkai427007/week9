@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Greater Kuala Lumpur Urban Rail Map</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+    h2 { margin-bottom: 12px; }
+    #vis { display: inline-block; }
+  </style>
 </head>
 <body>
   <h2>Greater Kuala Lumpur Urban Rail Network — 2025</h2>
   <div id="vis"></div>
   <script type="text/javascript">
-    vegaEmbed('#vis', 'urban-map.json');
+    vegaEmbed('#vis', 'urban-map.json').catch(function(err) {
+      console.error("vegaEmbed error:", err);
+      document.getElementById('vis').innerText = "Failed to load visualization.";
+    });
   </script>
 </body>
 </html>
